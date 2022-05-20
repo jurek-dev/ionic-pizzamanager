@@ -44,4 +44,20 @@
     </ion-item-options>
   </ion-item-sliding>
   </ion-list>
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      refreshingSpinner="circles"
+      refreshingText="Carregando...">
+    </ion-refresher-content>
+  </ion-refresher>
+  
+<ion-infinite-scroll  (ionInfinite)="loadData($event)">
+  <ion-infinite-scroll-content
+    loadingSpinner="bubbles"
+    loadingText="Carregando mais dados">
+  </ion-infinite-scroll-content>
+</ion-infinite-scroll>
+
 </ion-content>

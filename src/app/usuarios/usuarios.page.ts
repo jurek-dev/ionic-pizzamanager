@@ -49,8 +49,12 @@ export class UsuariosPage implements OnInit {
       };
 
       this.provider.dadosApi(dados, 'api.php').subscribe(data => {
-        for(let usuario of data['result']) {
-          this.usuarios.push(usuario);
+        if(data['result'] == '0') {
+          this.ionViewWillEnter();
+        } else {
+          for(let usuario of data['result']) {
+            this.usuarios.push(usuario);
+          }
         }
         resolve(true)
       });
@@ -88,5 +92,29 @@ export class UsuariosPage implements OnInit {
       this.mensagemExcluir();
     }); 
   }
+
+  //atualizar o list view
+
+  doRefresh(event) {
+    
+    setTimeout(() => {
+      this.ionViewWillEnter();
+      event.target.complete();
+    }, 500);
+  }
+
+//barra de rolagem
+loadData(event) {
+  
+    this.start += this.limit;
+
+    setTimeout(() => {
+      this.carregar().then(()=>{ 
+        event.target.complete();
+       });
+     
+    }, 500);
+  
+}
 
 }
