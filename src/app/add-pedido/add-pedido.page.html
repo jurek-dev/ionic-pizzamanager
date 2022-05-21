@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar class="toolbar-theme">
+    <ion-title>Pedidos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">
+      Pedido N°
+    </ion-label>
+    <ion-input [(ngModel)]="id" disabled></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">
+      Pizza N°
+    </ion-label>
+    <ion-input [(ngModel)]="pizzas_id"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Sabor da borda</ion-label>
+    <ion-select [(ngModel)]="borda_id" okText="Selecionar" cancelText="Cancelar">
+      <ion-select-option value="1">Catupiry</ion-select-option>
+      <ion-select-option value="2">Cheddar</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>Tipo de massa</ion-label>
+    <ion-select [(ngModel)]="massa_id" okText="Selecionar" cancelText="Cancelar">
+      <ion-select-option value="1">Tradicional</ion-select-option>
+      <ion-select-option value="2">Milanesa</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>Status do pedido</ion-label>
+    <ion-select [(ngModel)]="status_id" okText="Selecionar" cancelText="Cancelar">
+      <ion-select-option value="1">Em andamento</ion-select-option>
+      <ion-select-option value="2">Finalizado</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-button *ngIf="!id" color="success" expand="block" (click)="cadastrar()">
+    Salvar
+  </ion-button>
+
+  <ion-button *ngIf="id" color="primary" expand="block" (click)="editar()">
+    Editar
+  </ion-button>
+</ion-content>

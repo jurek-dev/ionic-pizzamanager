@@ -30,6 +30,18 @@ const routes: Routes = [
   {
     path: 'mostrar-usuario/:id/:nome/:usuario/:senha/:nivel',
     loadChildren: () => import('./mostrar-usuario/mostrar-usuario.module').then( m => m.MostrarUsuarioPageModule)
+  },
+  {
+    path: 'pedidos',
+    loadChildren: () => import('./pedidos/pedidos.module').then( m => m.PedidosPageModule)
+  },
+  {
+    path: 'add-pedido',
+    loadChildren: () => import('./add-pedido/add-pedido.module').then( m => m.AddPedidoPageModule)
+  },
+  {
+    path: 'add-pedido/:id/:pizzas_id/:borda_id/:massa_id/:status_id',
+    loadChildren: () => import('./add-pedido/add-pedido.module').then( m => m.AddPedidoPageModule)
   }
 ];
 
